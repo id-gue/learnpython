@@ -32,6 +32,13 @@ class RectangleTestCase(unittest.TestCase):
 		with self.assertRaises(ValueError):
 			rectangle.calc_area(length, width)
 
+	def test_side_is_0(self):
+		"""What is a rectangle area with length 0 and width 2? ValueError"""
+		length = 0
+		width = 2
+		with self.assertRaises(ValueError):
+			rectangle.calc_area(length, width)
+
 	def test_side_is_string(self):
 		"""What is a rectangle area with length a and width 3? TypeError"""
 		length = 'a'
@@ -39,11 +46,11 @@ class RectangleTestCase(unittest.TestCase):
 		with self.assertRaises(TypeError):
 			rectangle.calc_area(length, width)
 
-	def test_side_is_0(self):
-		"""What is a rectangle area with length 0 and width 2? NameError"""
-		length = 0
-		width = 2
-		with self.assertRaises(NameError):
+	def test_side_is_boolean(self):
+		"""What is a rectangle area with length a and width 3? TypeError"""
+		length = False
+		width = 3
+		with self.assertRaises(TypeError):
 			rectangle.calc_area(length, width)
 
 if __name__ == '__main__':

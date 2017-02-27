@@ -1,11 +1,14 @@
 def calc_area(length, width):
-	size = length * width
+	if type(length) != int and type(length) != float:
+		raise TypeError('length must be int or float')
 
-	if type(length) is str or type(width) is str:
-		raise TypeError('Please use numbers instead of letters.')
-	elif size < 0:
-		raise ValueError('Please use positive numbers.')
-	elif size == 0:
-		raise NameError('Please use numbers bigger than 0.')
-	elif size > 0:
-		return size
+	if type(width) != int and type(width) != float:
+		raise TypeError('width must be int or float')
+
+	if length <= 0:
+		raise ValueError('lenght must be larger than 0')
+	
+	if width <= 0:
+		raise ValueError('width must be larger than 0')
+
+	return length * width
